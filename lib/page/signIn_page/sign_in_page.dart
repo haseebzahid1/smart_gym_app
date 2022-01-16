@@ -8,6 +8,8 @@ import 'package:flutter_smart_gym/widget/inputfield_suffixicon_widget.dart';
 import 'package:flutter_smart_gym/widget/social_icon.dart';
 import 'package:provider/provider.dart';
 
+import '../signUp_page/signUp_page.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -164,7 +166,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     InkWell(
                       // onTap: onTab,
                       onTap: (){
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const SignUpPage()));
                       },
                       child:  Text("Sign up here",
                         style: memberHeadingStyle.copyWith(color: Colors.blue),
