@@ -7,6 +7,7 @@ class InputFieldSuffixIcon extends StatefulWidget {
   String? labelText;
   Widget? prefixIcon;
   bool isPassword;
+
   bool? check;
   void Function(String)? onChanged;
   void Function(String?)? onSaved;
@@ -20,7 +21,7 @@ class InputFieldSuffixIcon extends StatefulWidget {
     this.onChanged,
     this.validate,
     this.prefixIcon,
-    this.isPassword = false,
+    this.isPassword = true,
   }) : super(key: key);
 
   @override
@@ -33,9 +34,11 @@ class _InputFieldSuffixIconState extends State<InputFieldSuffixIcon> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: TextFormField(
+
         obscureText: widget.isPassword,
         initialValue: widget.initialValue,
         decoration: InputDecoration(
+
             hintText: widget.hintText,
             // errorText:errorText,
             labelText: widget.labelText,
