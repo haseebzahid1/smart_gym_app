@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 
 
-class SignInProvider extends ChangeNotifier{
+class SignUpProvider extends ChangeNotifier{
 
   /// form start
   String userEmail = "";
@@ -11,7 +11,7 @@ class SignInProvider extends ChangeNotifier{
   String confirmPassword = "";
   /// form End
   /// Form provider Start
-  bool remember = false;
+
 
 
 

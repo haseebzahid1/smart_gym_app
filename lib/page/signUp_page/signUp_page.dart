@@ -16,8 +16,8 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<SignInProvider>(
-      create: (context)=>SignInProvider(),
+    return ChangeNotifierProvider<SignUpProvider>(
+      create: (context)=>SignUpProvider(),
     child: HomePageWidget(),);
   }
 }
@@ -27,7 +27,7 @@ class HomePageWidget extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-   final signUpProvider = Provider.of<SignInProvider>(context);
+   final signUpProvider = Provider.of<SignUpProvider>(context);
     final Size size  = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
