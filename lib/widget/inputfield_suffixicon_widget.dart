@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_gym/constant/theme_color.dart';
 
 class InputFieldSuffixIcon extends StatefulWidget {
   String? initialValue;
@@ -36,6 +37,7 @@ class _InputFieldSuffixIconState extends State<InputFieldSuffixIcon> {
         initialValue: widget.initialValue,
         decoration: InputDecoration(
             hintText: widget.hintText,
+            // errorText:errorText,
             labelText: widget.labelText,
             prefixIcon: widget.prefixIcon,
             errorStyle: TextStyle(fontSize: 15),
@@ -46,8 +48,8 @@ class _InputFieldSuffixIconState extends State<InputFieldSuffixIcon> {
                   });
                 },
                 child: widget.isPassword
-                    ? const Icon(Icons.visibility)
-                    : const Icon(Icons.visibility_off)),
+                    ? const Icon(Icons.visibility,color: lightBlue,)
+                    : const Icon(Icons.visibility_off,color: lightBlue,)),
           labelStyle: TextStyle(color: Colors.blue,fontSize: 19,fontWeight: FontWeight.bold),
           filled: true,
           fillColor: Colors.white,

@@ -3,12 +3,11 @@ import 'package:flutter/cupertino.dart';
 
 
 
-class FormProvider extends ChangeNotifier{
+class SignInProvider extends ChangeNotifier{
 
   /// form start
   String userEmail = "";
   String password = "";
-  String confirmPassword = "";
   /// form End
   /// Form provider Start
   bool remember = false;
@@ -24,16 +23,11 @@ class FormProvider extends ChangeNotifier{
     // print (password);
   }
 
-  void onSaveConfirmPassword(String? value){
-    confirmPassword = value ?? "";
-  }
 
   void onChancedPassword  (String value) {
     password = value;
   }
-  void onChangedConfirmPassword  (String value) {
-    confirmPassword = value;
-  }
+
 
   String? validateUsername(String? value){
     userEmail = value ?? "";
@@ -59,24 +53,10 @@ class FormProvider extends ChangeNotifier{
     }
   }
 
-  String? validateConfirmPassword(String? value){
-    confirmPassword = value ?? "";
-    if(value==null  || value.isEmpty){
-      return "Confirm password is required";
-    }
-    else if(value.length<3){
-      return "password must 3 charactor or long";
-    }else if(value.length>16) {
-      return "Password length must be 16 character or less";
-    } else if(password != confirmPassword){
-      return "password not match";
-    }
 
-    return null;
-  }
 
   void onSubmit(){
-    print({"${userEmail}, ${password}, $confirmPassword"});
+    print({"${userEmail}, ${password}"});
   }
 /// Form provider End
 }

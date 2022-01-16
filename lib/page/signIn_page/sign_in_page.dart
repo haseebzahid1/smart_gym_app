@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_smart_gym/form_widget/form_button.dart';
-import 'package:flutter_smart_gym/form_widget/input_field.dart';
-import 'package:flutter_smart_gym/form_widget/inputfield_suffixicon_widget.dart';
-import 'package:flutter_smart_gym/form_widget/social_icon.dart';
-import 'package:flutter_smart_gym/mainpage/provider.dart';
-import 'package:flutter_smart_gym/page/check_img.dart';
-import 'package:flutter_smart_gym/theme_color/theme_color.dart';
+import 'package:flutter_smart_gym/constant/theme_color.dart';
+import 'package:flutter_smart_gym/page/signUp_page/sign-up_provider.dart';
+import 'package:flutter_smart_gym/widget/double_line.dart';
+import 'package:flutter_smart_gym/widget/form_button.dart';
+import 'package:flutter_smart_gym/widget/input_field.dart';
+import 'package:flutter_smart_gym/widget/inputfield_suffixicon_widget.dart';
+import 'package:flutter_smart_gym/widget/social_icon.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
@@ -14,8 +14,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<FormProvider>(
-      create: (context)=>FormProvider(),
+    return ChangeNotifierProvider<SignInProvider>(
+      create: (context)=>SignInProvider(),
       child: LoginPageWidget(),);
   }
 }
@@ -34,18 +34,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final formProvider = Provider.of<FormProvider>(context);
+    final signInProvider = Provider.of<SignInProvider>(context);
     final Size size  = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.fromLTRB(40, 30, 40, 20),
             width: size.width,
-            height: size.height,
-            decoration:  BoxDecoration(
-                color: Colors.purple,
+            // height: size.height,
+            decoration:  const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/images/form img1.jpeg"),fit: BoxFit.cover
+                    image: AssetImage("assets/images/background.png"),fit: BoxFit.cover
                 )
             ),
             child: Column(
@@ -70,14 +69,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SocialIcon(bgColor:bgButtonWhite, svgImage: 'assets/icons/google-icon.svg',onTap: (){ print("google");},),
-                          SocialIcon(bgColor:bgButtonBlue,color: Colors.white, svgImage: 'assets/icons/facebook-2.svg',onTap: (){print("facebook");},),
+                          SocialIcon(bgColor:kbgBlue,color: Colors.white, svgImage: 'assets/icons/facebook-2.svg',onTap: (){print("facebook");},),
                           SocialIcon(bgColor:lightBlue,color: Colors.white, svgImage: 'assets/icons/twitter.svg',onTap: (){print("twitter");},),
                         ],
                       )
                     ],
                   ),
                 ),
-                const SizedBox(height: 15,),
+                const SizedBox(height: 6,),
+                DoubleLine(),
+                const SizedBox(height: 6,),
                 Row(
                   children:  [
                     Text("Login Using Socials",style: registerHeadingStyle ,),
@@ -93,8 +94,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         initialValue: "Email@gmail.com",
                         // hintText: "Email@gmail.com",
                         labelText: "Email",
-                        validate:formProvider.validateUsername,
-                        onSaved: formProvider.onSaveUsername,
+                        validate:signInProvider.validateUsername,
+                        onSaved: signInProvider.onSaveUsername,
                         prefixIcon: const Icon(Icons.person,color: lightBlue,),
                       ),
                       const SizedBox(height: 20,),
@@ -102,9 +103,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         initialValue: "12345678",
                         labelText: "password",
                         prefixIcon: const Icon(Icons.https,color: lightBlue,),
-                        validate:formProvider.validatePassword,
-                        onSaved: formProvider.onSavedPassword,
-                        onChanged:formProvider.onChancedPassword ,
+                        validate:signInProvider.validatePassword,
+                        onSaved: signInProvider.onSavedPassword,
+                        onChanged:signInProvider.onChancedPassword ,
                       ),
                       const SizedBox(height: 5,),
                       Row(
@@ -135,7 +136,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         onTap: (){
                           if(_formKey.currentState!.validate()){
                             _formKey.currentState!.save();
-                            formProvider.onSubmit();
+                            signInProvider.onSubmit();
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("VaLIDATION PASSED"))
                             );
@@ -143,7 +144,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("VALIDATION ERROR")));
                           }
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const CheckImg()));
+                          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const AnyNamepage()));
                         },
                         padding:EdgeInsets.symmetric(vertical: 15) ,
                         bgcolor: Colors.deepOrange.withOpacity(0.7), color: Colors.white,
@@ -151,12 +152,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ],
                   ),
                 ),
-                SizedBox(height: 80,),
+                SizedBox(height: 50,),
                 // Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     Text("Not a member?",
+                    Text("Not a member?",
                       style: memberHeadingStyle,
                     ),
                     SizedBox(width: 3,),
@@ -165,7 +166,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       onTap: (){
                         // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>()));
                       },
-                      child:  Text("Sign Up",
+                      child:  Text("Sign up here",
                         style: memberHeadingStyle.copyWith(color: Colors.blue),
                       ),
                     ),

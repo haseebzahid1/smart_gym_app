@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color bgButtonBlue = Color(0xFF3B66BE);
+const Color kbgBlue = Color(0xFF3B66BE);
 const Color bgButtonWhite = Color(0xffffffff);
 
 const Color white = Color(0xffffffff);
