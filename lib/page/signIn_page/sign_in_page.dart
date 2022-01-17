@@ -99,7 +99,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           validate:signInProvider.validateUsername,
                           onSaved: signInProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
-                            obscure: false
+                          isPassword: false,
                         ),
                         const SizedBox(height: 17,),
                         InputFieldWidget(

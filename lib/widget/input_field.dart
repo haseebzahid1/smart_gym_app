@@ -6,10 +6,13 @@ class InputFieldWidget extends StatefulWidget {
   String? labelText;
   Widget? prefixIcon;
   int? maxLines;
+  bool? isPassword;
+  TextInputType? textInputType;
   void Function(String)? onChanged;
   void Function(String?)? onSaved;
   String? Function(String?)? validate;
-  bool? obscure;
+
+
   InputFieldWidget({Key? key,
     this.initialValue,
     this.hintText,
@@ -19,7 +22,8 @@ class InputFieldWidget extends StatefulWidget {
     this.validate,
     this.prefixIcon,
     this.maxLines,
-    this.obscure,
+    this.isPassword,
+    this.textInputType,
   }) : super(key: key);
 
   @override
@@ -43,7 +47,8 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: TextFormField(
-          obscureText: widget.obscure?? true,
+          obscureText: widget.isPassword ?? true,
+          keyboardType: widget.textInputType ?? TextInputType.text,
           initialValue:widget.initialValue,
           decoration:  InputDecoration(
             hintText:widget.hintText,

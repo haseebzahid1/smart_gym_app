@@ -92,7 +92,7 @@ class HomePageWidget extends StatelessWidget {
                           validate:signUpProvider.validateUsername,
                           onSaved: signUpProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
-                          obscure: false,
+                          isPassword: false,
                         ),
                         const SizedBox(height: 18,),
                         InputFieldWidget(
