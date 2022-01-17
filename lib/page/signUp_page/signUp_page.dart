@@ -87,8 +87,9 @@ class HomePageWidget extends StatelessWidget {
                       children: [
                         InputFieldWidget(
                           initialValue: signUpProvider.signUpUser.email ?? "Email@gmail.com",
-                          // hintText: "Email@gmail.com",
+                          hintText: "Email@gmail.com",
                           labelText: "Email",
+                          textInputType:TextInputType.emailAddress,
                           validate:signUpProvider.validateUsername,
                           onSaved: signUpProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),

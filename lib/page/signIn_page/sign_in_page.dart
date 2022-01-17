@@ -96,6 +96,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           initialValue: signInProvider.user.email ?? "Email@gmail.com",
                           // hintText: "Email@gmail.com",
                           labelText: "Email",
+                          textInputType: TextInputType.emailAddress,
                           validate:signInProvider.validateUsername,
                           onSaved: signInProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
