@@ -46,19 +46,15 @@ class _InputFieldSuffixIconState extends State<InputFieldSuffixIcon> {
             suffixIcon: widget.suffixIcon,
             labelStyle: TextStyle(color: Colors.blue,fontSize: 19,fontWeight: FontWeight.bold),
             filled: true,
-            fillColor: Colors.white,
+            fillColor: Colors.white10,
             focusedBorder:InputBorder.none,
             enabledBorder: InputBorder.none,
             border:InputBorder.none,
-          errorBorder:OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red)
-          ),
           // errorText: Colors.red,
         ),
         onSaved: widget.onSaved,
         onChanged: widget.onChanged,
         validator: widget.validate,
-
       ),
     );
   }

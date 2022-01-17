@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class InputFieldWidget extends StatefulWidget {
   String? initialValue;
   String? hintText;
@@ -46,7 +44,7 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
           prefixIcon: widget.prefixIcon,
           labelStyle: TextStyle(color: Colors.blue,fontSize: 19,fontWeight: FontWeight.bold),
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Colors.white10,
           enabledBorder: InputBorder.none,
           focusedBorder:InputBorder.none,
           border:InputBorder.none,

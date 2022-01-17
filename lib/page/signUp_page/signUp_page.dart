@@ -77,10 +77,10 @@ class HomePageWidget extends StatelessWidget {
                   // const SizedBox(height: 6,),
                   Row(
                     children:  [
-                      Text("Register with socials",style:  registerHeadingStyle,),
+                      Text("Register with email",style:  registerHeadingStyle,),
                     ],
                   ),
-                  const SizedBox(height: 15,),
+                  const SizedBox(height: 12,),
                   Form(
                     key: _formKey,
                     autovalidateMode: AutovalidateMode.always,
@@ -95,7 +95,7 @@ class HomePageWidget extends StatelessWidget {
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
 
                         ),
-                        const SizedBox(height: 20,),
+                        const SizedBox(height: 18,),
                         InputFieldSuffixIcon(
                           initialValue: signUpProvider.signUpUser.password ?? "12345678",
                           labelText: "password",
@@ -103,7 +103,7 @@ class HomePageWidget extends StatelessWidget {
                           validate:signUpProvider.validatePassword,
                           onSaved: signUpProvider.onSavedPassword,
                           onChanged:signUpProvider.onChancedPassword ,
-                        ),const SizedBox(height: 20,),
+                        ),const SizedBox(height: 15,),
                         InputFieldSuffixIcon(
                           initialValue: "12345678",
                           labelText: "Confirm password",
@@ -112,10 +112,9 @@ class HomePageWidget extends StatelessWidget {
                           onChanged: signUpProvider.onChangedConfirmPassword,
                           onSaved:signUpProvider.onSaveConfirmPassword,
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 7,),
                         RichText(
                           text: TextSpan(
-                            style: TextStyle(fontSize: 16,),
                             children:  <TextSpan>[
                               TextSpan(text: ' Bt creating an account I accept the ',style: privacyHeadingStyle),
                               TextSpan(text: 'Terms & Conditions', style: privacyHeadingStyle.copyWith(color: Colors.blue)),
@@ -141,7 +140,7 @@ class HomePageWidget extends StatelessWidget {
                             }
                             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage()));
                           },
-                          padding:EdgeInsets.symmetric(vertical: 15) ,
+                          padding:EdgeInsets.symmetric(vertical: 14) ,
                           bgcolor: lightBlue, color: Colors.white,
                           width: double.infinity, textButton: 'Join Us',),
                       ],
@@ -157,9 +156,7 @@ class HomePageWidget extends StatelessWidget {
                       const SizedBox(width: 3,),
                       InkWell(
                         // onTap: onTab,
-                        onTap: (){
-                          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>()));
-                        },
+                        onTap: (){},
                         child:  Text("Sign in",
                           style: memberHeadingStyle.copyWith(color: Colors.blue),
                         ),

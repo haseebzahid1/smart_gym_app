@@ -100,7 +100,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           onSaved: signInProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
                         ),
-                        const SizedBox(height: 20,),
+                        const SizedBox(height: 17,),
                         InputFieldSuffixIcon(
                           initialValue: signInProvider.user.password ?? "12345678",
                           labelText: "password",
@@ -109,15 +109,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           onSaved: signInProvider.onSavedPassword,
                           onChanged:signInProvider.onChancedPassword ,
                         ),
-                        const SizedBox(height: 5,),
+                        const SizedBox(height: 3,),
                         Row(
                           children: [
                             Expanded(
-                              flex:2,
+                              // flex:1,
                               child: CheckboxListTile(
                                 contentPadding: EdgeInsets.only(left: 0),
                                   controlAffinity: ListTileControlAffinity.leading,
-                                title: Text("Remember me",),
+                                title: Text("Remember me",style: forgetPassword),
                                   value: checkboxIndex,
                                   onChanged: (bool? value){
                                   setState(() {
@@ -128,11 +128,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             ),
 
                             Expanded(
+                              // flex: 1,
                               child: GestureDetector(
                                 onTap: (){
                                   // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const CheckImg()));
                                 },
-                                child: const Text("Forgot Password",style: TextStyle(decoration: TextDecoration.underline),textAlign: TextAlign.right,),
+                                child:  Text("Forgot Password",style: forgetPassword.copyWith(decoration: TextDecoration.underline, ),textAlign: TextAlign.right,),
                               ),
                             ),
                           ],
@@ -165,7 +166,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       Text("Not a member?",
                         style: memberHeadingStyle,
                       ),
-                      const SizedBox(width: 3,),
+                      SizedBox(width: 3,),
                       InkWell(
                         // onTap: onTab,
                         onTap: (){
