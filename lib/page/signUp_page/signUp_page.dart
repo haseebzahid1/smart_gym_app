@@ -40,7 +40,7 @@ class HomePageWidget extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+          padding: EdgeInsets.fromLTRB(36, 0, 36, 0),
           child: ListView(
             children: [
               Column(
@@ -93,6 +93,7 @@ class HomePageWidget extends StatelessWidget {
                           validate:signUpProvider.validateUsername,
                           onSaved: signUpProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
+
                         ),
                         const SizedBox(height: 20,),
                         InputFieldSuffixIcon(
@@ -141,7 +142,7 @@ class HomePageWidget extends StatelessWidget {
                             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage()));
                           },
                           padding:EdgeInsets.symmetric(vertical: 15) ,
-                          bgcolor: Colors.deepOrange.withOpacity(0.7), color: Colors.white,
+                          bgcolor: lightBlue, color: Colors.white,
                           width: double.infinity, textButton: 'Join Us',),
                       ],
                     ),
@@ -159,7 +160,7 @@ class HomePageWidget extends StatelessWidget {
                         onTap: (){
                           // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>()));
                         },
-                        child:  Text("Sign up",
+                        child:  Text("Sign in",
                           style: memberHeadingStyle.copyWith(color: Colors.blue),
                         ),
                       ),
@@ -174,3 +175,5 @@ class HomePageWidget extends StatelessWidget {
     );
   }
 }
+
+

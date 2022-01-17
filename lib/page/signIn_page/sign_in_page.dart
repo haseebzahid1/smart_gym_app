@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_gym/constant/theme_color.dart';
 import 'package:flutter_smart_gym/page/signIn_page/sign_in_provider.dart';
-import 'package:flutter_smart_gym/page/singin_2.dart';
 import 'package:flutter_smart_gym/widget/double_line.dart';
 import 'package:flutter_smart_gym/widget/form_button.dart';
 import 'package:flutter_smart_gym/widget/input_field.dart';
@@ -47,7 +46,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+          padding: EdgeInsets.fromLTRB(36, 0, 36, 0),
           child: ListView(
             children: [
               Column(
@@ -113,17 +112,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         const SizedBox(height: 5,),
                         Row(
                           children: [
-
-                            // Checkbox(
-                            //     value: remember,
-                            //     activeColor: kPrimaryColor,
-                            //     onChanged: (bool? value){
-                            //       setState(() {
-                            //         remember = value!;
-                            //         print(remember);
-                            //       });
-                            //     }
-                            // ),
                             Expanded(
                               flex:2,
                               child: CheckboxListTile(
@@ -150,27 +138,26 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           ],
                         ),
                         FormButton(
-
                           onTap: (){
                             if(_formKey.currentState!.validate()){
                               _formKey.currentState!.save();
                               signInProvider.onSubmit();
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("VaLIDATION PASSED"))
+                                  SnackBar(content: const Text("VaLIDATION PASSED"))
                               );
                             }else{
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("VALIDATION ERROR")));
+                                  const SnackBar(content: Text("VALIDATION ERROR")));
                             }
                             // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const AnyNamepage()));
                           },
                           padding:EdgeInsets.symmetric(vertical: 15) ,
-                          bgcolor: Colors.deepOrange.withOpacity(0.7), color: Colors.white,
+                          bgcolor: lightBlue.withOpacity(0.7), color: Colors.white,
                           width: double.infinity, textButton: 'Join Us',),
                       ],
                     ),
                   ),
-                  SizedBox(height: 60,),
+                  const SizedBox(height: 60,),
                   // Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -178,11 +165,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       Text("Not a member?",
                         style: memberHeadingStyle,
                       ),
-                      SizedBox(width: 3,),
+                      const SizedBox(width: 3,),
                       InkWell(
                         // onTap: onTab,
                         onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SignInTwo()));
+                          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SignInTwo()));
                         },
                         child:  Text("Sign up here",
                           style: memberHeadingStyle.copyWith(color: Colors.blue),

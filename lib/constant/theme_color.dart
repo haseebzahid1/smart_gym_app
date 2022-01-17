@@ -4,7 +4,7 @@ const Color kbgBlue = Color(0xFF3B66BE);
 const Color bgButtonWhite = Color(0xffffffff);
 
 const Color white = Color(0xffffffff);
-const Color lightBlue = Colors.lightBlue;
+const Color lightBlue = Color(0xff41b9eb);
 const kTextColor = Color(0xff757575);
 const kPrimaryColor = Color(0xffff7643);
 

@@ -2,17 +2,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_smart_gym/model/SignupUser.dart';
 
-
-
-
 class SignUpProvider extends ChangeNotifier{
 
-  /// form start
-  // String userEmail = "";
-  // String password = "";
   String confirmPassword = "";
-  /// form End
-  /// Form provider Start
+
 
   SignUpUser signUpUser = SignUpUser();
 
