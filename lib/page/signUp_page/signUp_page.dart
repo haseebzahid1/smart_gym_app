@@ -4,6 +4,7 @@ import 'package:flutter_smart_gym/page/signUp_page/sign-up_provider.dart';
 import 'package:flutter_smart_gym/widget/double_line.dart';
 import 'package:flutter_smart_gym/widget/form_button.dart';
 import 'package:flutter_smart_gym/widget/input_field.dart';
+
 import 'package:flutter_smart_gym/widget/social_icon.dart';
 import 'package:flutter_smart_gym/page/signIn_page/sign_in_page.dart';
 import 'package:provider/provider.dart';
@@ -91,7 +92,7 @@ class HomePageWidget extends StatelessWidget {
                           validate:signUpProvider.validateUsername,
                           onSaved: signUpProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
-
+                          obscure: false,
                         ),
                         const SizedBox(height: 18,),
                         InputFieldWidget(
