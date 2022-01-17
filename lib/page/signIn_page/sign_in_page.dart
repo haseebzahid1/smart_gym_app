@@ -5,7 +5,6 @@ import 'package:flutter_smart_gym/page/signUp_page/signUp_page.dart';
 import 'package:flutter_smart_gym/widget/double_line.dart';
 import 'package:flutter_smart_gym/widget/form_button.dart';
 import 'package:flutter_smart_gym/widget/input_field.dart';
-import 'package:flutter_smart_gym/widget/inputfield_suffixicon_widget.dart';
 import 'package:flutter_smart_gym/widget/social_icon.dart';
 import 'package:provider/provider.dart';
 
@@ -102,7 +101,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           prefixIcon: const Icon(Icons.person,color: lightBlue,),
                         ),
                         const SizedBox(height: 17,),
-                        InputFieldSuffixIcon(
+                        InputFieldWidget(
                           initialValue: signInProvider.user.password ?? "12345678",
                           labelText: "password",
                           prefixIcon: const Icon(Icons.https,color: lightBlue,),

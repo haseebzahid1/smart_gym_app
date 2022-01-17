@@ -4,7 +4,6 @@ import 'package:flutter_smart_gym/page/signUp_page/sign-up_provider.dart';
 import 'package:flutter_smart_gym/widget/double_line.dart';
 import 'package:flutter_smart_gym/widget/form_button.dart';
 import 'package:flutter_smart_gym/widget/input_field.dart';
-import 'package:flutter_smart_gym/widget/inputfield_suffixicon_widget.dart';
 import 'package:flutter_smart_gym/widget/social_icon.dart';
 import 'package:flutter_smart_gym/page/signIn_page/sign_in_page.dart';
 import 'package:provider/provider.dart';
@@ -95,7 +94,7 @@ class HomePageWidget extends StatelessWidget {
 
                         ),
                         const SizedBox(height: 18,),
-                        InputFieldSuffixIcon(
+                        InputFieldWidget(
                           initialValue: signUpProvider.signUpUser.password ?? "12345678",
                           labelText: "password",
                           prefixIcon: const Icon(Icons.https,color: lightBlue,),
@@ -103,7 +102,7 @@ class HomePageWidget extends StatelessWidget {
                           onSaved: signUpProvider.onSavedPassword,
                           onChanged:signUpProvider.onChancedPassword ,
                         ),const SizedBox(height: 15,),
-                        InputFieldSuffixIcon(
+                        InputFieldWidget(
                           initialValue: "12345678",
                           labelText: "Confirm password",
                           prefixIcon: const Icon(Icons.https,color: lightBlue,),
