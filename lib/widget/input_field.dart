@@ -28,31 +28,37 @@ class InputFieldWidget extends StatefulWidget {
 class _InputFieldWidgetState extends State<InputFieldWidget> {
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: TextFormField(
-        initialValue:widget.initialValue,
-        decoration:  InputDecoration(
-          hintText:widget.hintText,
-          // hintStyle: TextStyle(
-          //   color: Colors.grey,
-          //   fontSize: 17,
-          //   fontFamily: "verdana_regular",
-          //   fontWeight: FontWeight.w600,
-          // ),
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
-          labelStyle: TextStyle(color: Colors.blue,fontSize: 19,fontWeight: FontWeight.bold),
-          filled: true,
-          fillColor: Colors.white10,
-          enabledBorder: InputBorder.none,
-          focusedBorder:InputBorder.none,
-          border:InputBorder.none,
+    return Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 6,
+                spreadRadius: 5,
+                offset: Offset(0,-0.2),
+                color: Colors.grey.withOpacity(0.1),)
+            ]
         ),
-        onSaved: widget.onSaved,
-        onChanged: widget.onChanged,
-        validator: widget.validate,
-        maxLines: widget.maxLines ?? 1,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: TextFormField(
+          initialValue:widget.initialValue,
+          decoration:  InputDecoration(
+            hintText:widget.hintText,
+            labelText: widget.labelText,
+            prefixIcon: widget.prefixIcon,
+            labelStyle: TextStyle(color: Colors.blue,fontSize: 19,fontWeight: FontWeight.bold),
+            filled: true,
+            fillColor: Colors.white,
+            enabledBorder: InputBorder.none,
+            focusedBorder:InputBorder.none,
+            border:InputBorder.none,
+          ),
+          onSaved: widget.onSaved,
+          onChanged: widget.onChanged,
+          validator: widget.validate,
+          maxLines: widget.maxLines ?? 1,
+        ),
       ),
     );
   }

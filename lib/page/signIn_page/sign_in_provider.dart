@@ -3,17 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_smart_gym/model/User.dart';
 import 'package:flutter_smart_gym/model/checkbox.dart';
 
-
-
 class SignInProvider extends ChangeNotifier{
 
-  /// form start
-  // String userEmail = "";
-  // String password = "";
-  /// form End
-  /// Form provider Start
   bool remember = false;
-
   User user = User();
 
   void onSaveUsername(String? value){
@@ -25,7 +17,6 @@ class SignInProvider extends ChangeNotifier{
     // print (password);
   }
 
-
   void onChancedPassword  (String value) {
     user.password = value;
   }
@@ -33,10 +24,14 @@ class SignInProvider extends ChangeNotifier{
 
   String? validateUsername(String? value){
     user.email = value ?? "";
+    const pattern = r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)';
+    final regExp = RegExp(pattern);
     if(value==null || value.isEmpty){
       return "please enter your user Email";
-    }else if(value.length<3 ){
+    }else if(value.length<4 ){
       return "Email length must be 3 or long";
+    }else if (!regExp.hasMatch(value)) {
+      return 'Enter a valid email';
     }else{
       return null;
     }

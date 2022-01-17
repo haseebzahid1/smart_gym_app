@@ -6,7 +6,6 @@ import 'package:flutter_smart_gym/widget/form_button.dart';
 import 'package:flutter_smart_gym/widget/input_field.dart';
 import 'package:flutter_smart_gym/widget/inputfield_suffixicon_widget.dart';
 import 'package:flutter_smart_gym/widget/social_icon.dart';
-
 import 'package:flutter_smart_gym/page/signIn_page/sign_in_page.dart';
 import 'package:provider/provider.dart';
 
@@ -113,14 +112,17 @@ class HomePageWidget extends StatelessWidget {
                           onSaved:signUpProvider.onSaveConfirmPassword,
                         ),
                         const SizedBox(height: 7,),
-                        RichText(
-                          text: TextSpan(
-                            children:  <TextSpan>[
-                              TextSpan(text: ' Bt creating an account I accept the ',style: privacyHeadingStyle),
-                              TextSpan(text: 'Terms & Conditions', style: privacyHeadingStyle.copyWith(color: Colors.blue)),
-                              TextSpan(text: ' and!',style: privacyHeadingStyle),
-                              TextSpan(text: ' privacy policy!',style: privacyHeadingStyle.copyWith(color: Colors.blue)),
-                            ],
+                        Padding(
+                          padding: const EdgeInsets.only(right: 9),
+                          child: RichText(
+                            text: TextSpan(
+                              children:  <TextSpan>[
+                                TextSpan(text: ' Bt creating an account I accept the ',style: privacyHeadingStyle),
+                                TextSpan(text: 'Terms & Conditions', style: privacyHeadingStyle.copyWith(color: Colors.blue)),
+                                TextSpan(text: ' and!',style: privacyHeadingStyle),
+                                TextSpan(text: ' privacy policy!',style: privacyHeadingStyle.copyWith(color: Colors.blue)),
+                              ],
+                            ),
                           ),
                         ),
                         const SizedBox(height: 20,),
@@ -140,7 +142,7 @@ class HomePageWidget extends StatelessWidget {
                             }
                             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage()));
                           },
-                          padding:EdgeInsets.symmetric(vertical: 14) ,
+                          padding:EdgeInsets.symmetric(vertical: 13) ,
                           bgcolor: lightBlue, color: Colors.white,
                           width: double.infinity, textButton: 'Join Us',),
                       ],

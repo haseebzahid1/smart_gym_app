@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_gym/constant/theme_color.dart';
 import 'package:flutter_smart_gym/page/signIn_page/sign_in_provider.dart';
+import 'package:flutter_smart_gym/page/signUp_page/signUp_page.dart';
 import 'package:flutter_smart_gym/widget/double_line.dart';
 import 'package:flutter_smart_gym/widget/form_button.dart';
 import 'package:flutter_smart_gym/widget/input_field.dart';
@@ -158,7 +159,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 60,),
+                  const SizedBox(height: 50,),
                   // Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -170,7 +171,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       InkWell(
                         // onTap: onTab,
                         onTap: (){
-                          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SignInTwo()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SignUpPage()));
                         },
                         child:  Text("Sign up here",
                           style: memberHeadingStyle.copyWith(color: Colors.blue),

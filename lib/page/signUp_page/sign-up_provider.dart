@@ -32,10 +32,14 @@ class SignUpProvider extends ChangeNotifier{
 
   String? validateUsername(String? value){
     signUpUser.email = value ?? "";
+    const pattern = r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)';
+    final regExp = RegExp(pattern);
     if(value==null || value.isEmpty){
       return "please enter your user Email";
-    }else if(value.length<3 ){
+    }else if(value.length<4 ){
       return "Email length must be 3 or long";
+    }else if (!regExp.hasMatch(value)) {
+      return 'Enter a valid email';
     }else{
       return null;
     }
