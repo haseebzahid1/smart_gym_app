@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_smart_gym/model/User.dart';
+import 'package:flutter_smart_gym/model/checkbox.dart';
 
 
 
@@ -59,5 +60,10 @@ class SignInProvider extends ChangeNotifier{
   void onSubmit(){
     print({"${user.email}, ${user.password}"});
   }
+
+  final List<CheckBoxState>check_notification = [
+    CheckBoxState(title: "Colleagues", ),
+    // CheckBoxState(title: "Calls"),
+  ];
 /// Form provider End
 }
