@@ -98,7 +98,7 @@ class HomePageWidget extends StatelessWidget {
                         const SizedBox(height: 18,),
                         InputFieldWidget(
                           initialValue: signUpProvider.signUpUser.password ?? "12345678",
-                          labelText: "password",
+                          labelText: "Password",
                           prefixIcon: const Icon(Icons.https,color: lightBlue,),
                           validate:signUpProvider.validatePassword,
                           onSaved: signUpProvider.onSavedPassword,
@@ -106,7 +106,7 @@ class HomePageWidget extends StatelessWidget {
                         ),const SizedBox(height: 15,),
                         InputFieldWidget(
                           initialValue: "12345678",
-                          labelText: "Confirm password",
+                          labelText: "Confirm Password",
                           prefixIcon: const Icon(Icons.https,color: lightBlue,),
                           validate:signUpProvider.validateConfirmPassword,
                           onChanged: signUpProvider.onChangedConfirmPassword,
@@ -120,8 +120,8 @@ class HomePageWidget extends StatelessWidget {
                               children:  <TextSpan>[
                                 TextSpan(text: ' Bt creating an account I accept the ',style: privacyHeadingStyle),
                                 TextSpan(text: 'Terms & Conditions', style: privacyHeadingStyle.copyWith(color: Colors.blue)),
-                                TextSpan(text: ' and!',style: privacyHeadingStyle),
-                                TextSpan(text: ' privacy policy!',style: privacyHeadingStyle.copyWith(color: Colors.blue)),
+                                TextSpan(text: ' and',style: privacyHeadingStyle),
+                                TextSpan(text: ' privacy policy',style: privacyHeadingStyle.copyWith(color: Colors.blue)),
                               ],
                             ),
                           ),

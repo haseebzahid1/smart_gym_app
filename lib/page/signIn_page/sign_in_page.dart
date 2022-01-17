@@ -65,7 +65,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Login Using Email",style: registerHeadingStyle ,),
+                        Text("Register with Socials",style: registerHeadingStyle ,),
                         const SizedBox(height: 15,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,7 +83,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   const SizedBox(height: 6,),
                   Row(
                     children:  [
-                      Text("Login Using Socials",style: registerHeadingStyle ,),
+                      Text("Login Using Email",style: registerHeadingStyle ,),
                     ],
                   ),
                   const SizedBox(height: 15,),
@@ -105,7 +105,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         const SizedBox(height: 17,),
                         InputFieldWidget(
                           initialValue: signInProvider.user.password ?? "12345678",
-                          labelText: "password",
+                          labelText: "Password",
                           prefixIcon: const Icon(Icons.https,color: lightBlue,),
                           validate:signInProvider.validatePassword,
                           onSaved: signInProvider.onSavedPassword,
@@ -154,9 +154,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             }
                             // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const AnyNamepage()));
                           },
-                          padding:EdgeInsets.symmetric(vertical: 15) ,
+                          padding:EdgeInsets.symmetric(vertical: 13) ,
                           bgcolor: lightBlue.withOpacity(0.7), color: Colors.white,
-                          width: double.infinity, textButton: 'Join Us',),
+                          width: double.infinity, textButton: 'Log in',),
                       ],
                     ),
                   ),
