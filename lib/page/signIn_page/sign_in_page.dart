@@ -93,7 +93,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   child: Column(
                     children: [
                       InputFieldWidget(
-                        initialValue: "Email@gmail.com",
+                        initialValue: signInProvider.user.email ?? "Email@gmail.com",
                         // hintText: "Email@gmail.com",
                         labelText: "Email",
                         validate:signInProvider.validateUsername,
@@ -102,7 +102,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       ),
                       const SizedBox(height: 20,),
                       InputFieldSuffixIcon(
-                        initialValue: "12345678",
+                        initialValue: signInProvider.user.password ?? "12345678",
                         labelText: "password",
                         prefixIcon: const Icon(Icons.https,color: lightBlue,),
                         validate:signInProvider.validatePassword,

@@ -1,26 +1,28 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_smart_gym/model/SignupUser.dart';
+
 
 
 
 class SignUpProvider extends ChangeNotifier{
 
   /// form start
-  String userEmail = "";
-  String password = "";
+  // String userEmail = "";
+  // String password = "";
   String confirmPassword = "";
   /// form End
   /// Form provider Start
 
-
+  SignUpUser signUpUser = SignUpUser();
 
 
   void onSaveUsername(String? value){
-    userEmail = value ?? "";
+    signUpUser.email = value ?? "";
   }
 
   void onSavedPassword  (String? value) {
-    password = value ?? "";
+    signUpUser.password = value ?? "";
     // print (password);
   }
 
@@ -29,14 +31,14 @@ class SignUpProvider extends ChangeNotifier{
   }
 
   void onChancedPassword  (String value) {
-    password = value;
+    signUpUser.password = value;
   }
   void onChangedConfirmPassword  (String value) {
     confirmPassword = value;
   }
 
   String? validateUsername(String? value){
-    userEmail = value ?? "";
+    signUpUser.email = value ?? "";
     if(value==null || value.isEmpty){
       return "please enter your user Email";
     }else if(value.length<3 ){
@@ -47,7 +49,7 @@ class SignUpProvider extends ChangeNotifier{
   }
 
   String? validatePassword(String? value){
-    password = value!;
+    signUpUser.password = value ?? "";
     if (value == null || value.isEmpty) {
       return 'Password cannot be empty';
     }else if(value.length<3){
@@ -68,7 +70,7 @@ class SignUpProvider extends ChangeNotifier{
       return "password must 3 charactor or long";
     }else if(value.length>16) {
       return "Password length must be 16 character or less";
-    } else if(password != confirmPassword){
+    } else if(signUpUser.password != confirmPassword){
       return "password not match";
     }
 
@@ -76,7 +78,7 @@ class SignUpProvider extends ChangeNotifier{
   }
 
   void onSubmit(){
-    print({"${userEmail}, ${password}, $confirmPassword"});
+    print({"${signUpUser.email}, ${signUpUser.password}, $confirmPassword"});
   }
 /// Form provider End
 }

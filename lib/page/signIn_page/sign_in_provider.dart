@@ -1,36 +1,37 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_smart_gym/model/User.dart';
 
 
 
 class SignInProvider extends ChangeNotifier{
 
   /// form start
-  String userEmail = "";
-  String password = "";
+  // String userEmail = "";
+  // String password = "";
   /// form End
   /// Form provider Start
   bool remember = false;
 
-
+  User user = User();
 
   void onSaveUsername(String? value){
-    userEmail = value ?? "";
+    user.email = value ?? "";
   }
 
   void onSavedPassword  (String? value) {
-    password = value ?? "";
+    user.password = value ?? "";
     // print (password);
   }
 
 
   void onChancedPassword  (String value) {
-    password = value;
+    user.password = value;
   }
 
 
   String? validateUsername(String? value){
-    userEmail = value ?? "";
+    user.email = value ?? "";
     if(value==null || value.isEmpty){
       return "please enter your user Email";
     }else if(value.length<3 ){
@@ -41,7 +42,7 @@ class SignInProvider extends ChangeNotifier{
   }
 
   String? validatePassword(String? value){
-    password = value!;
+    user.password = value!;
     if (value == null || value.isEmpty) {
       return 'Password cannot be empty';
     }else if(value.length<3){
@@ -56,7 +57,7 @@ class SignInProvider extends ChangeNotifier{
 
 
   void onSubmit(){
-    print({"${userEmail}, ${password}"});
+    print({"${user.email}, ${user.password}"});
   }
 /// Form provider End
 }

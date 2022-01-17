@@ -85,7 +85,7 @@ class HomePageWidget extends StatelessWidget {
                   child: Column(
                     children: [
                       InputFieldWidget(
-                        initialValue: "Email@gmail.com",
+                        initialValue: signUpProvider.signUpUser.email ?? "Email@gmail.com",
                         // hintText: "Email@gmail.com",
                         labelText: "Email",
                         validate:signUpProvider.validateUsername,
@@ -94,7 +94,7 @@ class HomePageWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: 20,),
                       InputFieldSuffixIcon(
-                        initialValue: "12345678",
+                        initialValue: signUpProvider.signUpUser.password ?? "12345678",
                         labelText: "password",
                         prefixIcon: const Icon(Icons.https,color: lightBlue,),
                         validate:signUpProvider.validatePassword,
@@ -132,6 +132,7 @@ class HomePageWidget extends StatelessWidget {
                                 SnackBar(content: Text("VaLIDATION PASSED"))
                             );
                           }else{
+                            signUpProvider.onSubmit();
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("VALIDATION ERROR")));
                           }
