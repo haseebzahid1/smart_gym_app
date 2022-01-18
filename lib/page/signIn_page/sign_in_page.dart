@@ -23,15 +23,13 @@ class LoginPage extends StatelessWidget {
 
 class LoginPageWidget extends StatefulWidget {
   LoginPageWidget({Key? key}) : super(key: key);
-
   @override
   State<LoginPageWidget> createState() => _LoginPageWidgetState();
 }
 
 class _LoginPageWidgetState extends State<LoginPageWidget> {
   final _formKey = GlobalKey<FormState>();
-  bool remember = false;
-  bool checkboxIndex = false;
+
   @override
   Widget build(BuildContext context) {
     final signInProvider = Provider.of<SignInProvider>(context);
@@ -115,31 +113,30 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         Row(
                           children: [
                             Expanded(
-                              // flex:1,
+
+                              flex:1,
                               child: CheckboxListTile(
-                                contentPadding: EdgeInsets.only(left: 0),
+                                contentPadding: EdgeInsets.all(0),
                                   controlAffinity: ListTileControlAffinity.leading,
                                 title: Text("Remember me",style: forgetPassword),
-                                  value: checkboxIndex,
-                                  onChanged: (bool? value){
-                                  setState(() {
-                                    checkboxIndex = value!;
-                                  });
-                                  }
-                              ),
+                                  value: signInProvider.remember,
+                                  onChanged: (bool? value) {signInProvider.checkBoxChecked(value);}
+                                  ),
                             ),
 
                             Expanded(
                               // flex: 1,
                               child: GestureDetector(
                                 onTap: (){
-                                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const CheckImg()));
+                                    print("forget password");
                                 },
                                 child:  Text("Forgot Password",style: forgetPassword.copyWith(decoration: TextDecoration.underline, ),textAlign: TextAlign.right,),
                               ),
                             ),
                           ],
                         ),
+
+
                         FormButton(
                           onTap: (){
                             if(_formKey.currentState!.validate()){
