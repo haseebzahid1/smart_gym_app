@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_smart_gym/constant/theme_color.dart';
 import 'package:flutter_smart_gym/page/signUp_page/sign-up_provider.dart';
@@ -10,7 +11,7 @@ import 'package:flutter_smart_gym/page/signIn_page/sign_in_page.dart';
 import 'package:provider/provider.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+   SignUpPage({Key? key}) : super(key: key);
 
 
   @override
@@ -23,7 +24,11 @@ class SignUpPage extends StatelessWidget {
 
 class HomePageWidget extends StatelessWidget {
    HomePageWidget({Key? key}) : super(key: key);
-  // final _formKey = GlobalKey<FormState>();
+   final TapGestureRecognizer gestureTermsCondition = TapGestureRecognizer()..onTap = (){
+     print("Terms & Conditions");
+   }; final TapGestureRecognizer gesturePrivacyPolicy = TapGestureRecognizer()..onTap = (){
+     print("Privacy Policy");
+   };
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -114,21 +119,20 @@ class HomePageWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 7,),
                         Padding(
-                          padding: const EdgeInsets.only(right: 9),
+                          padding: const EdgeInsets.only(right: 13),
                           child: RichText(
                             text: TextSpan(
-                              children:  <TextSpan>[
-                                TextSpan(text: ' Bt creating an account I accept the ',style: privacyHeadingStyle),
-                                TextSpan(text: 'Terms & Conditions', style: privacyHeadingStyle.copyWith(color: Colors.blue)),
-                                TextSpan(text: ' and',style: privacyHeadingStyle),
-                                TextSpan(text: ' privacy policy',style: privacyHeadingStyle.copyWith(color: Colors.blue)),
+                              children: [
+                                TextSpan(text: 'Bt creating an account I accept the ',style: privacyHeadingStyle),
+                                TextSpan(text: 'Terms & Conditions', style: privacyHeadingStyle.copyWith(color: Colors.blue),recognizer: gestureTermsCondition),
+                                TextSpan(text: 'and',style: privacyHeadingStyle),
+                                TextSpan(text: 'privacy policy',style: privacyHeadingStyle.copyWith(color: Colors.blue),recognizer: gesturePrivacyPolicy),
                               ],
                             ),
                           ),
                         ),
                         const SizedBox(height: 20,),
                         FormButton(
-
                           onTap: (){
                             if(_formKey.currentState!.validate()){
                               _formKey.currentState!.save();
