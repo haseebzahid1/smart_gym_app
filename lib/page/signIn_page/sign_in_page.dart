@@ -38,20 +38,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       decoration:  const BoxDecoration(
         color: Colors.white,
           image: DecorationImage(
-              image: AssetImage("assets/images/background.png"),fit: BoxFit.cover
+              image: AssetImage("assets/images/background.png"),fit: BoxFit.fill
           )
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(36, 0, 36, 0),
-          child: GestureDetector(
-            onTap: (){
-              FocusScope.of(context).unfocus();
-            },
-            child: ListView(
-              children: [
-                Column(
+        body: GestureDetector(
+          onTap: (){
+            FocusScope.of(context).unfocus();
+          },
+          child: ListView(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(36, 0, 36, 0),
+                child: Column(
                   children: [
                     Column(
                       children: [
@@ -183,8 +183,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         )
       ),
